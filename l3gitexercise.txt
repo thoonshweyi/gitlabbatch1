@@ -1,0 +1,130 @@
+
+
+
+=>Remove List All Variable
+
+git config --local --unset user.name 
+git config --local --unset user.email 
+
+git config --local user.name
+git config --local user.email 
+
+git config -l --show-origin
+
+
+git init lesson1
+cd lesson1
+
+=>Check Folder Dir 
+for window = dir
+for linus = ls 
+for linus = ls -la  (or) ls -al
+
+git status 
+
+=>Set Default Branch 
+git config --global init.defaultBranch main
+
+
+Working Director > Staging Area > Local Repository > Remote Repository
+                git add         git commit          git push
+
+
+vim lesson1.txt 
+i > 
+esc :wq
+
+git status
+
+git add lesson1.txt
+
+git status
+
+git commit -m "adding lesson1.txt"
+
+git log
+
+=>Create New Branch 
+    git branch new-feature
+
+=>Check All Branch List 
+    git branch
+
+    git log
+
+
+vim lesson1.txt 
+i > 
+esc :wq
+
+git status 
+
+vim lesson2.txt 
+
+vim lesson2.txt 
+i > 
+esc :wq
+
+=>Change Default Branch
+git checkout new-feature
+git status  
+
+git add lesson1.txt 
+
+git status 
+
+git commit -m "add 2 countrires lesson1.txt"
+
+git status 
+
+git add lesson2.txt 
+
+git status 
+
+git commit -m "adding lesson2.txt"
+
+git status 
+
+ls 
+
+cat lesson1.txt 
+cat leson2.txt 
+
+git checkout main
+
+git status 
+
+ls 
+
+cat lesson1.txt 
+
+git checkout new-feature 
+
+ls
+
+----------------------------------------------------------------------------------------------------------------
+lesson1 - create & write                (untrack file - red)
+lesson1 - move to staging               (new file - green)
+lesson1 - store at local repo - main    (nothing to commit, working tree clean)
+
+
+
+lesson1 - add more lines - neaw-feaeture    (modified - red)
+lesson2 - create & write                    (untrack file - red)
+
+lesson1 - move to staging                   (modified - green)
+lesson1 - store at local repo - new-feature (lesson 2 untrack file - red)
+                                            1 file changed, 2 insertion(+) 
+
+lesson2 - move to staging                   (new file - green)
+lesson2 - store at local repo - new-feature (nothing to commit, working tree clean)
+                                             1 file changed, 1 insertion(+) 
+                                             **insertion = lines
+
+main 
+lesson1 - one country
+
+new-feature 
+lesson1- three countries 
+lesson2- one text  
+

@@ -1,0 +1,536 @@
+=> Rebase
+mkdir lesson11
+
+git init
+
+touch file1.txt
+touch file2.txt 
+
+vim file1.txt
+Edit: write down
+1.this is the first line
+2.this is the second line
+
+esc > :wq 
+
+vim file2.txt
+Edit: write down 
+1. this is the first comment
+2. this is the second comment
+
+esc > :wq
+
+git status 
+git status -s 
+
+git add .
+git commit -m "A file 1 2"
+git status
+ls
+
+git status
+
+git checkout -b new-feature
+git branch
+
+touch file3.txt
+touch file4.txt 
+
+vim file3.txt
+Edit: write down
+1.this is the first post
+2.this is the second post
+
+esc > :wq 
+
+vim file4.txt
+Edit: write down 
+1. this is the first expression
+2. this is the second expression
+
+esc > :wq 
+
+git status 
+git status -s 
+
+git add .
+git commit -m "A file 3 4"
+git status
+ls
+
+git checkout main
+git branch
+ls
+
+git merge new-feature
+git branch
+ls
+
+
+git checkout new-feature
+git branch
+ls
+
+vim file1.txt
+Edit: write down
+3.this is third line
+4.this is fourth line
+
+esc > :wq
+
+git status
+git status -
+
+git add .
+git commit -m "M f1"
+ls
+
+git branch
+cat file1.txt
+
+git checkout main
+git branch
+ls
+
+cat file1.txt
+
+git rebase new-feature
+
+cat file1.txt
+
+git branch
+
+vim file3.txt
+Edit: write down
+3.this is the third post
+4.this is the fourth post
+
+esc > :wq 
+
+git status
+git status -s
+
+git add *
+git commit -m "M f3"
+git status
+ls
+
+cat file3.txt
+
+git checkout new-feature
+ls
+cat file3.txt
+
+vim file2.txt
+Edit: write down 
+3. this is the third comment
+4. this is the fourth comment
+
+exc > :wq
+
+cat file2.txt
+cat file3.txt
+
+git status
+git add *
+git commit -m "M f2"
+git status
+ls
+
+git checkout main
+ls
+cat file2.txt
+cat file3.txt
+
+git checkout new-feature
+ls
+cat file3.txt
+
+vim file2.txt
+Edit: write down 
+5. this is the fifth comment
+6. this is the sixth comment
+
+exc > :wq
+
+touch file5.txt
+
+vim file5.txt
+Edit: write down 
+1.this is the first article
+
+exc > :wq
+
+vim file3.txt
+Edit: write down 
+7. this is the seventh comment
+8. this is the eighth comment
+
+exc > :wq
+
+ls 
+cat file2.txt
+cat file3.txt
+
+git status
+git add *
+git commit -m "M f2 f3 A f5"
+git status 
+ls 
+
+git checkout main 
+ls
+
+cat file2.txt
+cat file3.txt
+
+git rebase new-feature
+
+git branch
+
+cat file2.txt
+cat file3.txt
+
+vim file3.txt
+Edit: write down 
+7. this is the seventh comment
+8. this is the eighth comment
+
+cat file3.txt
+
+git branch
+git rebase --continue
+git branch 
+
+git rebase --skip               // Successfully rebased and updated refs/heads/main.
+git branch 
+
+ls
+cat file2.txt
+cat file3.txt
+cat file5.txt
+
+
+--------------------------------------------------------
+
+        main    new-feature
+file2   2       4   lines
+file3   4       2   lines
+
+--------------------------------------------------------
+
+=>1. Merge Commit (Default git merge)
+When you merge branch B into branch A with a regular merge, Git creates a new merge commit.
+
+The commit history will show a new commit that has two parents — one from branch A and one from branch B.
+
+The full commit history of branch B is preserved and shown in the log.
+
+Your commit graph becomes a branching structure that shows the diverged branches and the merge point.
+
+Example:
+
+git checkout main
+git merge feature
+git log --graph --oneline will show something like this:
+
+
+*   abcdef1 Merge branch 'feature'
+|\
+| * 1234567 Commit on feature branch
+| * 89abcd0 Another commit on feature
+* | 456789a Commit on main branch
+* | 789012b Another commit on main branch
+|/
+* 0123456 Base commit
+2. Fast-forward Merge
+If branch A hasn’t diverged and is strictly behind branch B, Git will simply move the branch pointer forward to the latest commit of branch B.
+
+No new merge commit is created.
+
+The history looks linear because you effectively just advanced the pointer.
+
+Example:
+
+git checkout main
+git merge feature
+If main has no new commits since feature branched off, then:
+
+* 1234567 Commit on feature branch
+* 89abcd0 Another commit on feature
+* 0123456 Base commit
+The history looks like all commits are on a single line.
+
+3. Rebase and then merge
+If you rebase branch B onto branch A before merging, Git will rewrite the commits of branch B so that they appear as if they come after the latest commit of branch A.
+
+The history is linear and looks like the feature branch commits happened after branch A commits.
+
+The merge may then be a fast-forward merge with no merge commit created.
+
+--------------------------------------------------------
+
+=>git merge vs. git rebase
+Both git merge and git rebase are used to integrate changes from one branch into another, but they do so differently and are used for different purposes. Here's a clear comparison:
+
+🔀 git merge
+✅ What it does:
+Combines the changes of one branch into another without changing the existing commit history.
+
+Creates a new “merge commit” to tie together the histories.
+
+🧠 How it works:
+
+git checkout main
+git merge feature
+This merges the feature branch into main, resulting in a new merge commit if the histories have diverged.
+
+📘 Example:
+css
+Copy
+Edit
+A---B---C main
+     \
+      D---E feature
+After git merge feature on main:
+
+css
+Copy
+Edit
+A---B---C---M main
+     \     /
+      D---E feature
+M is a merge commit combining main and feature.
+
+✅ Pros:
+Safe: Keeps full history.
+
+Reflects true branching and merging.
+
+❌ Cons:
+History can become messy with many branches and merges.
+
+🔄 git rebase
+✅ What it does:
+Moves or re-applies commits from one branch on top of another, creating a linear history.
+
+🧠 How it works:
+
+git checkout feature
+git rebase main
+This moves the commits in feature to be “rebased” on top of main.
+
+📘 Example:
+Before rebase:
+
+A---B---C main
+     \
+      D---E feature
+After git rebase main on feature:
+
+mathematica
+Copy
+Edit
+A---B---C---D'---E' feature
+D' and E' are new commits re-applied on top of C.
+
+✅ Pros:
+Clean, linear history.
+
+Easier to read logs (git log).
+
+❌ Cons:
+Rewrites history: Can be dangerous if you're rebasing shared branches.
+
+Not ideal for public branches.
+
+--------------------------------------------------------
+🔀 After git merge feature (from main)
+Git creates a new merge commit M, and keeps the original D, E, and C as-is.
+*   M  Merge branch 'feature'
+|\  
+| * E
+| * D
+* | C
+|/  
+* B
+* A
+
+git log --oneline:
+
+m123abc Merge branch 'feature' into main  ← merge commit
+e567890 E commit from feature
+d456789 D commit from feature
+c345678 C commit from main
+b234567 B
+a123456 A
+🟡 You will see:
+
+The merge commit on top
+
+The actual commits (E, D, C) unchanged
+
+The order may vary slightly depending on your Git config, but the merge commit is always there
+
+🔄 After git rebase main (from feature)
+Git replays D and E on top of C, and rewrites them as new commits (D’ and E’).
+
+git log --oneline:
+pgsql
+Copy
+Edit
+e999999 E' rebased on top of C
+d888888 D' rebased on top of C
+c345678 C from main
+b234567 B
+a123456 A
+🟢 You will see:
+
+No merge commit
+
+New commits E’, D’ (they look like E, D but are new commit hashes)
+
+Clean, linear history
+
+--------------------------------------------------------
+
+What is the result of git log --oneline.
+
+*   C5 (HEAD -> main) Merge branch 'feature'
+|\  
+| * C4 (feature) Add feature X
+| * C3 Improve feature
+* | C2 Fix bug
+* | C1 Update docs
+|/  
+* C0 Initial commit
+
+Chatbot: C5 Merge branch 'feature'
+        C4 Add feature X
+        C3 Improve feature
+        C2 Fix bug
+        C1 Update docs
+        C0 Initial 
+        
+
+
+
+*   C5 (HEAD -> main) Merge branch 'feature'
+|\
+| * C4 (feature) Add feature X
+* | C2 Fix bug
+| * C3 Improve feature
+
+* | C1 Update docs
+|/
+* C0 Initial commit
+
+Also show result for this.
+
+Chatbot: C5 Merge branch 'feature'
+        C4 Add feature X
+        C3 Improve feature
+        C2 Fix bug
+        C1 Update docs
+        C0 Initial 
+        
+When you run git log --oneline, Git walks through the commit history starting from the current HEAD and uses a topological traversal (plus time-based sorting by default) to build the commit list. 
+
+🧠 1. Start at HEAD
+Git starts walking from the commit pointed to by HEAD (usually the latest commit on the current branch).
+
+In your graph: C5.
+
+🔀 2. Traverse All Reachable Commits
+Git recursively visits all commits reachable from HEAD by following parent links.
+
+For merges (like C5), Git follows both parents.
+
+In your case:
+
+C5 has two parents: C4 (from feature branch) and C2 (from main).
+
+📚 3. Topological Sorting (Default)
+Git uses topological order by default.
+
+This ensures no child is shown before any of its parents.
+
+
+
+🔄 Git Walkthrough Step-by-Step
+Now let’s simulate how Git walks this:
+
+🔹 Step 1: Start at HEAD
+Current commit = C5
+
+Add C5 to the list.
+
+Queue its parents: C2 and C4
+
+makefile
+Copy
+Edit
+LOG: [C5]
+QUEUE: [C2, C4]
+🔹 Step 2: Pick one from the queue
+Git picks one commit from the queue. Let’s say it picks C4 (second parent).
+
+Add C4 to the list
+
+Queue its parent: C3
+
+makefile
+Copy
+Edit
+LOG: [C5, C4]
+QUEUE: [C2, C3]
+🔹 Step 3: Pick C3
+Add C3
+
+Queue its parent: C0
+
+makefile
+Copy
+Edit
+LOG: [C5, C4, C3]
+QUEUE: [C2, C0]
+🔹 Step 4: Pick C2
+Add C2
+
+Queue its parent: C1
+
+makefile
+Copy
+Edit
+LOG: [C5, C4, C3, C2]
+QUEUE: [C0, C1]
+🔹 Step 5: Pick C1
+Add C1
+
+Queue its parent: C0 (already in queue)
+
+makefile
+Copy
+Edit
+LOG: [C5, C4, C3, C2, C1]
+QUEUE: [C0]
+🔹 Step 6: Pick C0
+Add C0
+
+No more parents
+
+makefile
+Copy
+Edit
+LOG: [C5, C4, C3, C2, C1, C0]
+QUEUE: []
+✅ Final Output (git log --oneline)
+sql
+Copy
+Edit
+C5 Merge branch 'feature'
+C4 Add feature X
+C3 Improve feature
+C2 Fix bug
+C1 Update docs
+C0 Initial commit

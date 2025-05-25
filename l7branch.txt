@@ -1,0 +1,70 @@
+=>Branch
+
+
+=>Create Branch
+=Syntax
+git branch branchname
+
+
+mkdir lesson5
+git init
+git status
+
+
+touch file1.txt 
+git status 
+git  add file1.txt
+git commit -m "added fle1"
+git status
+
+git branch
+
+git branch bugfix
+git branch
+
+git branch dev
+git branch
+
+=>Switch
+git checkout bugfix
+git branch
+git status
+
+git checkout dev
+git branch
+git status
+
+Note: -b meaning create new branch
+git checkout -b new-feature
+
+=>Rename Branch
+git branch 
+git branch -m my-feature
+git branch 
+
+git checkout bugfix
+git branch -m bugerror
+git branch 
+
+
+=>Delete Branch
+=Syntax 
+git branch --delete branchname
+or
+git branch -d branchname
+or 
+git branch -D branchname
+
+
+git branch 
+git branch --delete bugerror    *error (error: cannot delete branch 'bugerror' used by worktree at 'D:/datalandgitlabbatch1/gitlesson/lesson5)
+
+git branch 
+git branch --delete dev
+git branch 
+git branch -d my feature
+git branch 
+git checkout main 
+git branch
+git branch -D bugerror 
+git branch

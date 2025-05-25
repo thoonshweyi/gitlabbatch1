@@ -1,0 +1,73 @@
+=>Git Ignor
+
+mkdir lesson4
+cd lesson4
+
+git init
+git status 
+
+touch .gitignore
+    filename.fileformat
+ls -la
+
+for linux = vim .gitignore
+for windows = .gitignore --edit
+
+=>In .gitignore
+    # Compiled Sources #
+    ####################
+    *.com
+    *.class
+    *.dll
+    *.exe
+    *.xlsx
+
+    # Packages #
+    *.zip
+    *.rar
+    *.tar
+    *.7zip
+    *.dmg
+    *.iso
+
+    # Images Cource #
+    *.jpeg
+    *.png
+    *.ico
+
+
+esc > :wq
+
+touch country.txt
+touch phone.txt
+touch computer.txt 
+touch user.jpg
+touch favicon.ico
+touch application.exe
+touch database.xlsx
+touch plugin.zip
+
+git status
+
+*Accept Files
+.gitignore     => ignore file must be uploaded for later version
+computer.txt
+country.txt
+phone.txt
+user.jpg
+
+** .gitignore for local repo only
+
+for linux = ls -la 
+rm .gitignore
+
+git status 
+    application.exe
+    computer.txt
+    country.txt
+    database.xlsx
+    favicon.ico
+    phone.txt
+    plugin.zip
+    user.jpg
+

@@ -1,0 +1,180 @@
+git init lesson2
+linux = ls 
+windows = dir
+
+cd lesson2
+ls 
+ls -la
+
+=>default branch
+git config --global init.defaultbranch main
+git status
+
+git branch -m main
+git status 
+
+vim cars.txt
+i 
+esc > :wq
+
+cat cars.txt 
+
+git status
+
+vim programming.txt 
+i 
+esc > :wq
+
+git status
+
+=>Go source folder 
+for windows = explore .
+for linux = xdg-open .
+
+=>Add all file to Staging Area
+git add -A 
+
+git status 
+
+git commit -m "adding cars and programming files"
+
+=>Create New branch 
+git branch new-feature1
+git branch new-feature2
+
+git branch 
+
+git status 
+
+git log
+
+=>Change branch 
+git checkout new-feature1
+
+git status 
+
+git log 
+
+vim phones.txt 
+
+git add phones.txt 
+
+git status 
+
+git add cars.txt 
+
+git status 
+
+git commit -m "phone added and cards modifying"
+
+git status 
+
+git log
+
+git status 
+
+linux = ls 
+windows = dir
+
+git checkout new-feature2
+
+git status 
+
+linux = ls 
+windows = dir
+
+cat cars.txt
+
+git checkout main 
+
+git status 
+
+linux = ls 
+windows = dir
+
+git checkout new-feature1 
+
+git status 
+
+linux = ls 
+windows = dir
+
+
+git log 
+git log --all --oneline (Note: --all mean all branches, --oneline mean all of repository)
+
+git checkout main 
+cat cars.txt 
+cat programming.txt
+
+git merge new-feature1
+
+git status 
+
+ls 
+cat cars.txt
+cat programming.txt 
+cat phones.txt
+
+git log
+
+git checkout new-feature2
+ls 
+cat cars.txt
+cat programming.txt 
+----------------------------------------------------------------------------------------------------------------
+main 
+____________
+cars.txt                    create & write  
+programming.txt             create & write  
+cars.txt, programming.txt   move to staging 
+cars.txt, programming.txt   store at local repo
+
+commit 71c26cedc0634a60e630ac84904641446aa561f0 (HEAD -> main, new-feature2, new-feature1)
+
+new-feature1 
+____________
+commit 71c26cedc0634a60e630ac84904641446aa561f0 (HEAD -> new-feature1, new-feature2, main)
+
+phone.txt                   create & write 
+cars.txt                    add more lines  
+phones.txt,cars.txt         move to staging 
+phones.txt,cars.txt         store at local repo
+
+
+commit a85dc1562df055da0de26ed9bb622393e48c3183 (HEAD -> new-feature1)
+commit 71c26cedc0634a60e630ac84904641446aa561f0 (new-feature2, main)
+
+new-feature2
+____________
+*initialize as main 
+commit 71c26cedc0634a60e630ac84904641446aa561f0 (HEAD -> new-feature2, main)
+
+
+After Merge 
+commit a85dc1562df055da0de26ed9bb622393e48c3183 (HEAD -> main, new-feature1)
+commit 71c26cedc0634a60e630ac84904641446aa561f0 (new-feature2)
+
+
+Key Points about HEAD in Git
+    HEAD Points to a Commit:
+
+    In Git, HEAD is not a commit itself but a pointer to the latest commit in your currently checked-out branch.
+    For example, if you're working on the main branch, HEAD points to the tip (latest commit) of the main branch.
+
+Branches Can Share the Same Commit:
+
+    In Git, branches are just pointers to specific commits.
+    If multiple branches point to the same commit, the commit is part of all those branches.
+    For example, main, new-feature1, and new-feature2 all point to the same commit (71c26c...). HEAD indicates which branch you are working on, but the commit itself is shared.
+
+
+Analogy for Understanding HEAD
+    Think of HEAD as a bookmark in a book:
+
+    The book represents your Git repository.
+    Each chapter represents a branch.
+    The bookmark (HEAD) shows where you are currently reading (working branch).
+    If you place the bookmark in a specific page (detached HEAD), you're not in any chapter, just referencing a specific page (commit).
+
+

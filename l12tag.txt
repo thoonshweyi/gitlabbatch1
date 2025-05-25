@@ -1,0 +1,249 @@
+=> Git Tag
+
+(i) Lightweight Tags - A Name  (get from commit)
+(ii) Annotated Tags - Allows you to add messages explaning the tag
+
+(i)
+git tag tagname (by editor)
+
+(ii)
+git tag -a tagname -m "message" (short hand)
+
+=> Delete
+git tag --delete tagname
+or
+git tag -d tagname 
+
+=>List 
+git tag
+(or)
+git tag --list
+
+git tag mytag
+git tag yourtag
+git tag --list (or) git tag
+git log --all --oneline
+git tag --delete mytag
+git tag -d yourtag
+git tag --list (or) git tag
+git log --all --oneline
+
+
+
+
+mkdir lesson12
+
+git 
+
+touch file0.txt
+
+vim file0.txt
+Edit: write down
+Before Version 1.0
+1.this is the first line
+2.this is the second line
+
+cat file0.txt
+
+git add .
+git commit -m "file 0 added"
+
+git status
+git branch
+git log
+
+git tag v1.0
+
+git tag
+
+git status
+git branch
+git log
+
+git show v1.0
+
+touch file1.txt
+touch file2.txt
+
+vim file1.txt
+Edit: write down
+After Version 1.0
+1.this is first post
+2.this is second post
+
+vim file2.txt
+Edit: write down
+After Version 1.0
+1.this is first comment
+2.this is second comment
+
+git status
+git status -s
+
+git add .
+git commit -m "file1 2 added"
+
+git status
+git branch
+git log
+
+git tag v1.1
+
+git tag
+
+git status
+git branch
+git log
+
+git tag --list
+
+git show v1.0
+git show v1.1
+
+git diff v1.0 v1.
+
+vim file0.txt
+Edit: write down
+After Version 1.0
+3.this is third line
+4.this is fourth line
+
+
+vim file2.txt
+Edit: write down
+After Version 1.0
+3.this is third post
+4.this is fourth post
+
+git add *
+git commit -m "M 0 2"
+
+git tag v1.2
+
+git tag
+
+git status
+git branch
+git log
+
+git show v1.0
+git show v1.1
+git show v1.2
+
+git diff v1.0 v1.2
+
+(To see note)
+git tag -n
+
+touch file3.txt
+touch file4.txt
+
+vim file3.txt
+Edit: write down
+Before Version 1.3
+1.this is first share
+2.this is second share
+
+vim file4.txt
+Edit: write down
+Before Version 1.3
+1.this is first react
+2.this is second react
+
+git status
+git status -s
+
+git add .
+git commit -m "file 3 4 added"
+
+git status
+git branch
+git log
+
+git tag -a v1.3
+edit:
+this new update of the version 1.3
+thank you (not include)
+#sample comment
+
+git tag
+
+git status
+git branch
+git log
+
+git show v1.3
+
+git tag -n
+
+(note edit)
+git tag -a v1.3 -f
+Edit:
+In this case ! we added file 3 and 4
+
+git tag -n
+
+git tag -a v1.0 -f
+Edit:
+In this case ! we added file 0
+
+git tag -n   // git log = file 3 4 added  (tag: v1.3, tag: v1.0)
+
+touch file5.txt
+
+vim file5.txt
+Edit: write down
+After Version 1.3
+1.this is first save
+2.this is second save
+
+
+git add .
+git commit -m "file 5 added"
+
+git status
+git branch
+git log
+
+git tag -a v1.4 -m "in this case ! we added file 5"
+
+git tag --list
+
+git log
+git tag -n
+
+git show v1.0
+git show v1.3
+
+git log --all --oneline
+
+git show v1.1
+
+git tag -a v1.5 a6e5c4f
+edit: this is new version v1.
+
+git tag -n
+
+git log --all --oneline
+git show v1.1
+git show v1.5
+
+=> Already Exists
+git tag -a v1.5 a6e5c4f
+edit: this is new version v1.
+
+git tag -n
+
+git log --all --oneline
+
+=> Change tag to new commit
+git tag -a v1.5 -f 2cd5dad
+edit: this is new version v1.5 for file 0 added.
+
+git log --all --oneline
+
+git show v1.5
+
+git log --all --oneline
+git show v1.3
+git show v1.0

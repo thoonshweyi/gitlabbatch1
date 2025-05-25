@@ -1,0 +1,12 @@
+=>Github
+
+account must have
+
+Account 1 (datalandtechnology@gmail.com)
+ASUS Laptop (Linux OS -> SSH to Github)
+
+Account 2 (tinhtutaung.dlt@gmail.com)
+Microsoft Surface Pro (Windows10 OS -> SSH to Github)
+
+------------------------------------------------------
+

@@ -1,0 +1,633 @@
+=> Commit
+mkdir lesson13
+
+git init
+
+touch file0.txt
+
+vim file0.txt
+Edit: write down
+1. this is the first line
+2. this is the second line
+
+cat file0.txt (or) more file0.txt
+
+git add *
+git commit -m "file 0 added"
+
+git status
+git branch
+git log --all --oneline
+
+touch file1.txt
+touch file2.txt
+
+vim file1.txt
+Edit: write down
+1. this is the first post
+2. this is the second post
+
+vim file2.txt
+Edit: write down
+1. this is the first comment
+2. this is the second comment
+
+git status
+git add *
+git commit -m "file 1 2 added"
+
+git status
+git branch
+git log --all --oneline
+
+vim file0.txt
+Edit: write down
+3. this is the third line
+4. this is the fourth post
+
+vim file2.txt
+Edit: write down
+3. this is the third comment
+4. this is the fourth comment
+
+git status
+git add *
+git commit -m "M 0 2"
+
+git status
+git branch
+git log --all --oneline
+
+ls
+
+cat file0.txt
+cat file1.txt
+cat file2.txt
+
+git status
+git branch
+
+git log --all --oneline
+
+git checkout 4dbbe1b (file 0 added)
+ls (result = file0.txt)
+cat file0.txt
+cat file1.txt
+cat file2.txt
+
+git log --all --oneline
+
+git status
+git branch // always ensure in main branch before added and modified file commit
+
+git checkout 9b27d9d (file 1 2 added)
+ls (result = file0.txt,file1.txt,file2.txt)
+cat file0.txt
+
+git log --all --oneline
+
+git status
+git branch 
+
+git checkout 819970d ( M 0 2)
+ls (result = file0.txt,file1.txt,file2.txt)
+cat file0.txt
+cat file1.txt
+cat file2.txt
+
+
+git log --all --oneline
+
+git status
+git branch 
+
+git checkout main
+
+touch file3.txt
+
+vim file3.txt
+Edit: write down
+1. this is the first react
+2. this is the second react
+
+git status
+
+git add .
+
+git status
+
+cat file3.txt
+
+git restore --staged file3.txt
+
+git status
+
+cat file3.txt
+
+git add .
+
+git commit -m "file 3 added"
+
+vim file3.txt
+Edit: write down
+3. this is the third react
+4. this is the fourth react
+
+git add .
+
+git status
+
+cat file3.txt
+
+git restore --staged file3.txt
+
+git status
+
+cat file3.txt
+
+git restore file3.txt
+
+cat file3.txt
+
+vim file3.txt
+Edit: write down
+3. this is the third react
+4. this is the fourth react
+
+git status
+
+git add .
+
+git status
+
+cat file3.txt
+
+git status
+
+git reset HEAD file3.txt
+
+git status
+
+cat file3.txt
+
+git add .
+
+git commit -m "M f3"
+
+git status
+
+cat file3.txt
+
+git log --all --oneline
+
+git status
+
+git reset a6ff4a2 --soft ( file 3 added) (--soft = already staged area = git add .)
+
+git status
+
+cat file3.txt
+
+git log --all --oneline
+
+git restore --staged file3.txt
+
+git status 
+
+git add .
+
+git status
+
+git commit -m "M f3 again"
+
+git status
+
+cat file3.txt
+
+git log --all --oneline
+
+git show 
+
+git reset 819970d --soft ( M 0 2)
+
+git status
+
+ls
+
+cat file3.txt
+
+git commit -m "A f3 again"
+
+cat file3.txt
+
+git log --all --oneline
+
+git show
+
+git reset 9b27d9d --mixed (file 1 2 added) (--mixed = unstaged area)
+
+git status
+
+ls
+
+git log --all --oneline
+
+git add .
+
+git commit -m "M 0 2 A 3"
+
+git status
+
+git log --all --oneline
+
+ls 
+
+cat file3.txt
+
+=> git reflog
+git log --all --oneline
+
+git reflog
+
+git reset --hard f7b910b
+
+ls 
+
+git log --all --oneline
+
+cat file3.txt
+=======================================================================================================
+🔍 What is a Detached HEAD?
+In normal Git usage:
+
+HEAD points to the latest commit on your current branch.
+
+You’re working on a branch, and Git knows where to move HEAD after each commit.
+
+But in a detached HEAD state:
+
+HEAD points directly to a specific commit instead of a branch.
+
+This means:
+You are no longer "on a branch" — you are just viewing or working from a past commit, tag, or commit hash.
+
+📘 Example
+Let's say you have a repo like this:
+
+
+A -- B -- C -- D (main)
+              ↑
+            HEAD
+Now you run:
+
+git checkout C
+Now Git puts you in a detached HEAD state:
+
+
+A -- B -- C -- D (main)
+         ↑
+       HEAD
+You are now viewing commit C.
+
+You are no longer on the main branch.
+
+Any changes or commits you make now are not part of any branch.
+
+🔨 What Happens If You Commit Now?
+Let’s say you make a commit while in the detached HEAD:
+
+A -- B -- C -- E
+         ↑
+       HEAD
+That new commit E is not part of any branch. If you switch back to the main branch, you lose the reference to E unless you save it (e.g., by creating a branch).
+
+⛔ Danger:
+If you don’t create a branch or tag pointing to E, and you move away, that commit can be lost forever.
+
+
+
+
+✅ How to Save Your Work
+✅ Method 1: Create a branch before switching
+
+git branch my-new-branch
+This saves the commit like this:
+
+
+(main) A -- B -- C
+              \
+               D (my-new-branch)  ← your commit
+You can now safely switch:
+
+git checkout main
+Your commit is safe under my-new-branch.
+
+✅ Method 2: Create and switch to a new branch in one step
+
+git checkout -b my-new-branch
+This does two things:
+
+Creates my-new-branch pointing to your current commit.
+
+Checks out that branch (you're no longer in detached HEAD).
+
+✅ Method 3: Tag it (optional)
+If you just want to bookmark the commit but not continue working on it:
+
+
+git tag my-tag
+Later, you can get back to it with:
+
+
+git checkout my-tag
+But you can’t commit on a tag — for that, you still need a branch.
+
+
+🧨 Why the commit disappears
+Your commit still exists temporarily (for a short time).
+
+But because no branch or tag points to it, Git will delete it later as part of cleanup (called garbage collection).
+
+It can even seem like it’s gone immediately from your point of view.
+
+
+
+
+
+
+
+
+=======================================================================================================
+
+ When You Run:
+
+git reset HEAD file.txt
+Git Does This:
+It compares the staged version (from git add) to the version in HEAD (the last commit).
+
+If the file is different, Git will:
+
+Remove the file from the staging area (unstage it)
+
+Keep the working directory as-is
+
+
+is
+
+📘 Simple Visual Example
+Suppose file.txt starts like this:
+
+
+Hello
+✅ You commit that version:
+
+
+git commit -m "Initial commit"
+Now:
+
+Area	Content
+HEAD	Hello
+Staging	—
+Working copy	Hello
+
+You Edit the File
+Now change file.txt to:
+
+
+Hello World
+Run:
+
+
+git add file.txt
+Now:
+
+Area	Content
+HEAD	Hello
+Staging	Hello World
+Working copy	Hello World
+
+Then You Edit It Again
+Now update the file to:
+
+
+Hello World and Universe
+Current status:
+
+Area	Content
+HEAD	Hello
+Staging	Hello World
+Working copy	Hello World and Universe
+
+Now Run:
+
+git reset HEAD file.txt
+Git checks:
+
+"What’s in the staging area?" → Hello World
+
+"What’s in HEAD?" → Hello
+
+Because they're different, it unstages file.txt by discarding the staging area version.
+
+🟢 Your working directory is untouched.
+The file still says:
+
+
+Hello World and Universe
+✅ Summary
+HEAD = snapshot from your last commit
+
+Staging area = files you marked for commit (git add)
+
+git reset HEAD file.txt =
+→ remove the file from staging (compare it to HEAD)
+→ do not remove your current edits
+
+================================================================================================================
+✅ What is git reset --soft?
+
+git reset --soft <commit>
+This moves the current branch (HEAD) to an earlier commit,
+but keeps all your changes staged for commit.
+
+🔍 What Happens Internally?
+Git Area	Affected?	Explanation
+✅ HEAD	YES	Moves to the given commit (like "rewinding time")
+✅ Staging Area	NO	Keeps all changes staged (ready to commit again)
+✅ Working Directory	NO	Keeps your files exactly as they are
+
+🧪 Real Example (Step-by-Step)
+Let’s say:
+You’ve made 3 commits:
+
+
+A -- B -- C   ← HEAD (on main)
+You realize:
+Commit C was a mistake (wrong message, wrong files, etc.)
+
+You want to "undo" it but keep its changes
+
+🔁 Solution:
+
+git reset --soft HEAD~1
+This:
+
+Moves HEAD back to commit B
+
+Keeps all the changes from commit C in the staging area
+
+Now your state looks like this:
+
+
+A -- B   ← HEAD (main)
+       \
+        (C's changes still staged, ready to re-commit)
+🎯 Why Use git reset --soft?
+You want to:
+
+Edit the last commit message
+
+Add/remove files from the commit
+
+Combine changes from multiple commits
+
+Reorganize your commit 
+
+❓ Can git reset --soft cause conflicts?
+git reset --soft only moves the HEAD pointer to another commit.
+
+It does not touch the working directory or the files on disk.
+
+It also does not modify the staging area (index).
+
+Since no files are touched or merged, there is no risk of merge conflicts.
+
+
+
+🤔 What Just Happened?
+HEAD moved back to A (your first commit)
+
+But Git kept the changes from commit B in the Staging Area
+
+Now:
+
+Area	Status
+HEAD	Points to commit A
+Staging Area	Contains the changes you made in commit B
+Working Directory	Same as it was after commit B
+
+=> My Analysis
+    M f3
+    file 3 added
+    M 0 2
+    file 1 2 added
+    file 0 added
+
+
+    git reset a6ff4a2 --soft ( file 3 added)
+    git status
+    // *result
+    -file3.txt is in stagging area. already stagged
+    -target commit and above changes are stagged.
+
+
+    git reset 9b27d9d --mixed
+    // git status (file 1 2 added)
+    // *result
+    -file0.txt file2.txt are not in stagging area. need to stagged again.
+    -target commit and above changes are not stagged.
+
+
+
+
+git reset --mixed
+🔹 Summary:
+git reset --mixed <commit>
+This command:
+
+Moves HEAD to a different commit
+
+Unstages any files that were staged after that commit
+
+Keeps your working directory files unchanged
+
+🔍 Let's Break It Down
+✅ What does --mixed do?
+Git Area	What happens
+HEAD	✅ Moves to the specified commit
+Staging Area (Index)	❌ Cleared (unstages changes)
+Working Directory	✅ Unchanged (your file edits remain)
+
+It’s the default mode of git reset — if you don’t specify --soft, --mixed, or --hard, Git assumes --mixed.
+
+
+🧠 What is git reflog?
+git reflog shows a log of where your HEAD and branches have been, including commits, resets, checkouts, merges, rebases, etc.
+
+🧾 It records all movements of HEAD, even those not in the visible history!
+Think of it as a private Git history — a record of your actions — not just the commits.
+
+
+🧠 What It Does
+bash
+Copy
+Edit
+git reset --hard <commit>
+This command:
+
+Area	Effect
+HEAD	✅ Moves to the given commit
+Staging area (index)	❌ Discarded — matches the target commit
+Working directory	❌ Discarded — files overwritten to match commit
+
+❗ It completely resets everything (like a factory reset to that commit).
+
+❓ Can git reset --hard <commit> cause a conflict?
+👉 No, it does not cause merge conflicts.
+🔍 Why?
+git reset --hard is a forceful command. It:
+
+Moves HEAD to a specific commit
+
+Erases the staging area (index) to match that commit
+
+Overwrites your working directory to match that commit
+
+💥 So, it doesn't try to merge anything — it just wipes out your current changes.
+
+✅ Example
+You have:
+
+bash
+Copy
+Edit
+A --- B --- C (HEAD)
+If you run:
+
+bash
+Copy
+Edit
+git reset --hard B
+It just does this:
+
+HEAD moves to B
+
+Files and staging area are restored to how they looked at commit B
+
+Changes from C are gone
+
+✅ No conflicts — because Git isn't comparing or merging files
+
+🛑 But Be Careful
+While it doesn’t cause a merge conflict, it can cause data loss if:
+
+You had uncommitted changes
+
+You didn’t save the commit you reset from
+
+You didn’t push your changes yet
+
+🛟 Recovery Tip
+If you accidentally deleted a commit or file with --hard, you can recover it only if it’s still in:
+
+git reflog

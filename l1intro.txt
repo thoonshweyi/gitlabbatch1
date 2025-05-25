@@ -1,0 +1,43 @@
+=>URL
+https://git-scm.com/
+
+=>Git Version Check 
+
+git --version 
+git Version
+
+=>Git ? 
+version control system (free and open source)
+system that's recording every changes to our files
+recall any specific version
+it's allow many people to easily collaborate a project
+
+=>Git vs Github/GitLab
+Git - git is a tool for manage github/lab repositories (can use git without github/lab)
+    - store versions in project history
+Github/lab - place where the source code exists (remotely and manage by git)
+            -online service that hosts our project 
+            -share our codes to other developers
+            -download / collaborate
+
+Project A 
+aaaaa 30 
+    30102024 folter 
+    readme.txt 
+    
+aaaabbbbb 31 (a)
+    30102024 > 31102024
+    readme.txt 
+    readme2.txt 
+aaabbbccccc 1 (a bb)
+    31102024 > 01112024
+
+aaabbbccddddd 2 (a bb ccc)
+
+aaabbbccddddd 3 (a bb ccc)
+-Need a feature from 30
+
+=>Important Notes 
+    Git - Create Repository (Every Project)
+        - Create Branch (Every Feature)
+        - No need to connect remote Repository

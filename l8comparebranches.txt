@@ -1,0 +1,131 @@
+mkdir lesson6
+cd lesson6
+
+git init
+
+touch file1.txt
+touch file2.txt
+
+vim file1.txt
+edit:
+this is post one
+this is post two
+this is post three
+
+esc > :wq
+
+git status 
+
+git add *
+git commit m "added file 1 2"
+
+git branch 
+ls
+cat file1.txt
+
+git branch new-feature
+
+git branch 
+git checkout new-feature 
+git branch 
+
+touch file3.txt
+touch file4.txt
+
+vim file3.txt
+edit:
+this is comment one
+this is comment two
+this is comment three
+esc > :wq
+
+vim file4.txt
+edit:
+this is react one
+this is react two
+this is react three
+esc > :wq
+
+vim file1.txt
+edit:
+this is post four
+this is post five
+this is post six
+esc > :wq
+
+git status 
+git status -s
+git diff   (* before user can add changes exists in modified file)
+git add *   (** After add, no different can be seen)
+git status 
+git status -s 
+git commit -m "M file1 A file 3 4"
+
+git branch 
+
+clear
+
+git diff main new-feature
+git diff new-feature main
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------
+=main
+file1.txt 
+1 commit 
+
+=new-feature
+file2.txt 
+fiel3.txt
+fiel1.txt - modify
+
+( 
+    M file1.txt
+    ?? file3.txt
+    ?? file4.txt
+)
+
+-add 
+(
+    M  file1.txt
+    A  file3.txt
+    A  file4.txt
+)
+
+= diff
+    How git diff Works
+    Unstaged Changes:
+
+        By default, git diff shows changes in your working directory compared to the staging area.
+        Use this to see what you’ve modified but haven’t yet staged with git add.
+
+    Key Points
+        <branch1>:
+
+        Represents the source branch (or the "current state").
+        Git compares changes starting from <branch1>.
+        <branch2>:
+
+        Represents the target branch (or the "desired state").
+        The output shows how <branch1> differs from <branch2> and what needs to be added or removed in <branch1> to match <branch2>.
+    Understanding the Output
+        Lines starting with +:
+
+        These lines are present in <branch2> but not in <branch1>.
+        They would need to be added to <branch1> to make it like <branch2>.
+        Lines starting with -:
+
+        These lines are present in <branch1> but not in <branch2>.
+        They would need to be removed from <branch1> to match <branch2>.
+
+        *Green + Surplus
+        *Red - Shortage

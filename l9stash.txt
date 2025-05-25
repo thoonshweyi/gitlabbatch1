@@ -1,0 +1,387 @@
+mkdir lesson7
+cd lesson7
+
+git init
+git status
+
+touch file0.txt
+ls 
+echo "welcom to our site" > file0.txt
+cat file0.txt
+
+git status 
+git add file0.txt 
+git commit -m "added file0"
+git status
+
+ls -la
+rm .git
+rm -rf .git
+git status 
+ls 
+rm * 
+ls
+--------------------------------------------------------------
+=>Undo commit 
+mkdir lesson7
+cd lesson7
+
+git init
+git status
+
+touch file0.txt
+ls 
+echo "my first project" > file0.txt
+cat file0.txt
+
+git status 
+git add file0.txt 
+git commit -m "added file0"
+git status
+
+touch file1.txt 
+ls 
+echo "Welcome to our site" > file1.txt 
+cat file1.txt
+git status
+git add file1.txt
+git status 
+ls 
+
+git stash  (*at least one commit to stash)
+git status
+ls
+git stash list
+
+touch file2.txt 
+ls 
+
+echo "thanks for visit" > file2.txt
+ls
+cat file2.txt
+
+git add *
+
+git status
+ls
+
+git stash
+git status
+ls
+git stash list
+
+touch file3.txt 
+ls
+
+echo "please click the share button" > file3.txt
+ls
+cat file3.txt
+
+git status 
+ls 
+
+git add file3.txt
+git stash
+git status
+ls
+git stash list
+
+
+touch file4.txt 
+ls
+
+echo "please click the lilke button" > file4.txt
+ls
+cat file4.txt
+
+git status 
+ls 
+
+git add file4.txt
+git stash
+git status
+ls
+git stash list
+
+
+=>Pop a single stash state
+
+git stash pop   // *out from last and remove from list
+git status
+git stash list
+
+git stash pop
+git status
+git stash list
+
+git stash show
+
+git stash pop
+git status
+git stash list
+
+git stash show
+
+git stash pop
+git status
+git stash list
+
+git status
+git commit -m "add file 1 2 3 4"
+git status
+ls 
+git stash list
+-------------------------------------------------------------------------
+What is git stash?
+git stash is a command in Git that temporarily saves (or "stashes") your uncommitted changes, including modifications to tracked files and optionally untracked files. This allows you to clear your working directory and switch contexts (e.g., switch branches or pull updates) without losing your progress. Later, you can restore the stashed changes.
+
+Why Use git stash?
+Temporary Save: Save your progress when your changes are incomplete or not ready for a commit.
+Switch Contexts: Safely switch branches or work on urgent tasks without losing your changes.
+Keep Workspace Clean: Remove uncommitted changes to pull updates or resolve merge conflicts.
+How git stash Works
+Tracked Files: By default, git stash only stashes changes in files that Git is tracking (files that have been added with git add or previously committed).
+Untracked Files: You can include untracked or ignored files using additional options.
+Stash Stack: Stashes are stored in a stack-like structure, where the most recent stash is at the top (stash@{0}).
+
+1. Stash Your Changes
+
+Saves changes in tracked files.
+Returns your working directory to the last committed state.
+
+
+stash@{0}: WIP on main: 8bb5d47 added file0
+stash@{1}: WIP on main: 8bb5d47 added file0
+
+--------------------------------------------------------------
+
+mkdir lesson8
+cd lesson8
+
+git init
+git status
+
+touch file0.txt
+ls 
+echo "my first project" > file0.txt
+cat file0.txt
+
+git status 
+git add file0.txt 
+git commit -m "added file0"
+git status
+
+touch file1.txt 
+ls 
+echo "Welcome to our site" > file1.txt 
+cat file1.txt
+git status
+git add file1.txt
+git status 
+ls 
+
+git stash  (*at least one commit to stash)
+git status
+ls
+git stash list
+
+touch file2.txt 
+ls 
+
+echo "thanks for visit" > file2.txt
+ls
+cat file2.txt
+
+git add *
+
+git status
+ls
+
+git stash
+git status
+ls
+git stash list
+
+touch file3.txt 
+ls
+
+echo "please click the share button" > file3.txt
+ls
+cat file3.txt
+
+git status 
+ls 
+
+git add file3.txt
+git stash
+git status
+ls
+git stash list
+
+
+touch file4.txt 
+ls
+
+echo "please click the lilke button" > file4.txt
+ls
+cat file4.txt
+
+git status 
+ls 
+
+git add file4.txt
+git stash
+git status
+ls
+git stash list
+
+
+=>Apply Stash state
+
+git stash show
+git stash apply // *out from last and don't remove from list
+git status 
+git stash list
+
+git commit -m "added file 4"
+git status
+ls
+
+*no result
+git stash apply
+git stash list
+
+git stash pop
+git stash show
+git stash apply
+
+git commit -m "added file 3"
+git status
+ls
+
+*no result
+git stash apply
+git stash list
+
+git stash pop
+git stash list 
+git stash show 
+git stash apply
+
+git commit -m "added file 2"
+git status
+ls
+
+
+=>Remove all the Stash 
+git stash clear
+git stash list
+
+
+-------------------------------------------------
+What is git stash apply?
+git stash apply is a Git command used to reapply changes that were previously saved (or "stashed") using the git stash command. It takes the changes from a specific stash (or the most recent stash by default) and reapplies them to your working directory without removing the stash from the stash stack.
+
+How git stash apply Works
+Non-Destructive: Unlike git stash pop, it does not delete the stash after applying it.
+Applies Changes: It reapplies the changes saved in the stash to your current working directory.
+Conflict Handling: If there are conflicts between the stashed changes and the current state of your branch, Git will show conflict markers in the files.
+
+
+Key Features
+Applies Specific Stash: You can apply any stash from the stash stack, not just the most recent one.
+Retains the Stash: The stash remains in the stack, allowing you to reapply it multiple times or pop it later.
+Conflict Resolution: If there are conflicts, you need to resolve them manually.
+
+Comparison: git stash apply vs. git stash pop
+Feature	                git stash apply	    git stash pop
+Reapply Changes	        Yes	                Yes
+Retain Stash	        Yes         	    No (removes the stash)
+Conflict Handling	    Manual resolution required	Manual resolution required
+Use Case	            Reapply changes multiple times.	Apply and discard the stash.
+
+
+--------------------------------------------------------------
+
+mkdir lesson9
+cd lesson9
+
+git init
+git status
+
+touch file0.txt
+ls 
+echo "my first project" > file0.txt
+cat file0.txt
+
+git status 
+git add file0.txt 
+git commit -m "added file0"
+git status
+
+touch file1.txt 
+touch file2.txt 
+ls
+
+git status
+git add *
+git status
+ls
+
+git stash save "added file 1 2"
+git status 
+ls 
+git stash list
+
+touch file3.txt 
+touch file4.txt 
+ls
+
+git status
+git add *
+git status
+ls
+
+git stash save "added file 3 4"
+git status 
+ls 
+git stash list
+
+git stash show
+git stash show stash@{0}
+git stash show stash@{1}
+
+=>Single Delete Stash 
+git stash drop stash@{1}
+git stash list
+
+touch file5.txt
+touch file6.txt
+touch file7.txt
+
+git status
+git add *
+git status 
+ls
+
+git stash save "added file 5 6 7"
+git status
+ls 
+git stash list
+
+git stash show stash@{0}
+git stash show stash@{1}
+
+git stash show
+git stash apply 
+
+git status 
+git commit -m "added file 5 6 7"
+git status 
+ls 
+
+git stash list
+git stash clear 
+git stash list
+
+(Remove the item at the floor - can be considered as a basket items)
