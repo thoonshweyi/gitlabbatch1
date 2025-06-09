@@ -1,0 +1,244 @@
+mkdir githublesson2
+
+git init
+git status
+git remote add origin git@github.com:thoonshweyi/githublesson2.git
+git add index.html
+git status
+git commit -m "A index.html"
+git push -u origin main
+
+
+
+=>Forking
+ madi > dlt
+ go to repository
+ click > Add file > Create new file > Cancel Change
+
+thoonshweyi/githublesson2  =>    thoonthoon469/githublesson2
+-Fork can be think of copy
+-Fork repo can be found even if after Create New File, Cancel Change
+
+-go to others repository
+-click file > Edit File > Click Fork
+-make changes
+-Not affect in Original Repository
+
+=>Delete Fork Repository
+madi > repository > settings > Danger Zone > Delete this repository
+
+=>Inviting Collaborators
+dlt account > githublesson2 > Settings > Collaborators > Add people , thinhtutaung.dlt@gmail.com
+
+=>Join/Accept Invitation
+kotha account > Profile Logo > Your Organization > Join > Accept Invitation
+
+
+
+
+=Add New File from PC
+dlt account
+file0.txt
+write down = Hello i am file0
+
+git status
+git add file0.txt
+git commit -m "A file0 from dlt by pc"
+git push -u origin main
+
+=Update File from PC
+dlt accout
+file0.txt
+write down = this is new post1
+
+git status
+git add file0.txt
+git commit -m "M file0 from dlt by pc"
+git push -u origin main
+
+=>Add New File By Collaborators
+kotha acount > githublesson2 from website
+click "Add file" > create new file
+file name "file1kotha.txt"
+write down = Hello i am file1 created by kotha
+click "Commit directly ....main"> Commit Changes
+commit from "A file1 from web by kotha"
+
+=>Pull
+dlt account by pc
+git status
+git pull origin
+*you will see new file 1 downloaded from remote repository to local repository
+
+
+mkdir githublesson3
+
+git init
+git status
+git remote add origin git@github.com:thoonshweyi/githublesson3.git
+git add index.html
+git status
+git commit -m "A index.html"
+git push -u origin main
+
+=>Fork
+kotha account > dlt account > githublesson3 > Fork > Create Fork
+
+=Create
+kotha account > githuibleson3 from website
+click Add file > create new file > file1kotha.txt
+write down: hello i am file1 created by kotha
+click Commit changes
+Title Commit = A file1 from web by kotha
+Description = i created new file1 from website
+click "Commit directly ....main"> Commit Changes
+
+=Edit
+kotha account > githuibleson3 from website
+click index.html
+write down: This is Lesson 1
+click Commit changes
+Title Commit = M title from web by kotha
+Description = i modified title from website
+click "Propose changes"
+
+=>Create Pull Request from Fork User to Repository Owner
+
+kotha account > githublesson3 from website
+click Pull request Tab > New pull request
+click "Create pull request"
+Title: Hay Owner !!!! i created new file and edited index file please check
+Description:    Dear Admin,
+                for your web improvement!!! i added new file and modified index.html
+                Best Regards.
+
+checked to main branchs
+click "Create pull request"
+
+-------------------------------------------------------
+    =Pull Request Tab (Original Repo)
+        -can see self pull request under base repository / no pull requests under forked repository
+        -owner can also view others pull request of the repository
+        -click Merge Pull Request
+        
+        *Original Repo
+        thoonshweyi/githublesson3               thoonthoon469/githublesson3 
+        
+        *Fork Repo (After Pull Accepted)
+        This branch is 1 commit behind thoonshweyi/githublesson3:main. (Merge commit generated)
+        thoonthoon469/githublesson3             thoonshweyi/githublesson3
+
+=Create
+    kotha account > githuibleson3 from website
+    click Add file > create new file > file2kotha.txt
+    write down: hello i am file2 created by kotha
+    click Commit changes
+    Title Commit = A file2 from web by kotha
+    Description = i created new file2 again from website
+    click "Commit directly ....main"> Commit Changes
+
+
+
+=>Public to Local Repository
+git pull origin main
+
+
+
+
+
+
+
+
+
+
+
+mkdir githublesson4
+git init
+git remote add origin git@github.com:thoonshweyi/githublesson4.git
+git status
+
+touch file0.txt
+vim file0.txt
+Write down:
+1. this is the first line
+2. this is the second line
+
+cat file0.txt (or) more file0.txt
+git add file0.txt
+git commit -m "file 0 added from dlt terminal"
+git push -u origin main
+
+=>Fork
+kotha account > dlt account > githublesson4 > Fork > Create Fork
+
+=Create
+kotha account > githuibleson4 from website
+click Add file > create new file > file1kotha.css
+write down: hello i am file1 created by kotha
+click Commit changes
+Title Commit = A file1 from web by kotha
+Description = i created new file1 for css from website
+click "Create a new branch for this commit...."> "kotha_css1" > Commit Changes
+
+
+=>Create Pull Request from Fork User to Repository Owner
+
+kotha account > githublesson4 from website
+click Pull request Tab > Compare & Request....
+click "Create pull request"
+Title: Hay Owner !!!! i created new file and edited file1kotha file please check
+Description:    Dear Admin,
+                for your web improvement!!! i added new file and modified index.html
+                Best Regards.
+click "Create pull request"
+
+dlt > edit from terminal to file1.css
+
+git push -u origin main
+
+=Create
+kotha account > githuibleson4 from website
+click Add file > create new file > file2kotha.js
+write down: hello i am file1 created by kotha
+click Commit changes
+Title Commit = A file2 from web by kotha
+Description = i created new file2 for js from website
+click "Create a new branch for this commit...."> "kotha_css1" > Commit Changes
+
+*must create under kotha_css1
+:Note ::but branch can't same name (branch nae change to kotha_css1-1)
+
+
+=>Create Pull Request from Fork User to Repository Owner
+
+kotha account > githublesson4 from website
+click Pull request Tab > Compare & Request....
+click "Create pull request"
+Title: Hay Owner !!!! i created new file and edited file1kotha file please check
+Description:    Dear Admin,
+                for your web improvement!!! i added new file and modified index.html
+                Best Regards.
+click "Create pull request"
+
+dlt > edit from web to file2.js
+
+git pull origin main
+
+-------------------------------------------------------
+*Original Repo 
+thoonshweyi/githublesson4/main               thoonthoon469/githublesson3/kotha_css1
+
+A file2 from web by kotha
+i created new js 2
+-------------------------------------------------------
+=>Delete/Restore Branch in pull request
+
+kotha > dlt > githublesson4 from website
+Pull request > Closed > choose title > Click "Delete Branch"  
+Pull request > Closed > choose title > Click "Restore Branch" 
+
+
+=>Fork
+kotha account > dlt account > githublesson4 > Fork > Create Fork
+
+*All files changes are included in main branch

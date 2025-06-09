@@ -1,0 +1,43 @@
+=>SSH Register
+(i) Github Config
+(ii) Export SSH Key from PC
+
+=>(i) Github Config
+
+    User Account > Settings > SSH and GPG Keys > Added New SSH Key
+
+=> (ii) Export SSH Key from PC
+    ssh-keygen --help
+
+    Metod 1 (RSA Rivest-Shamir-Adleman)
+    ssh-keygen -t rsa
+    
+    Method 2
+    ssh-keygen -t ed25519 -C "Key for Github" // encrypt type
+    ssh-keygen -t dsa // encrypt type
+
+    Method 3
+    ssh-keygen -t rsa -b 4096 -C "Key for Github"
+
+    For Linux
+    cd /home/computername/.ssh/
+    cat id_rsa.pub
+
+    or
+
+    cat ~/.ssh/id_rsa.pub
+
+=> Check Connection
+ssh -T git@github.com
+-----------------------------------------------------
+=>
+git config --global user.name
+git config --global user.email
+
+
+
+
+
+
+
+

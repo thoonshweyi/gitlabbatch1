@@ -1,0 +1,74 @@
+=>Alias
+
+git status
+git config --global alias.st "status"
+or
+git config --global alias.st status
+
+git st
+git status
+git config --global alias.st
+
+git branch
+git config --global alias.brh "branch"
+git brh
+git branch
+git config --global alias.brh
+
+git commit -m ""
+git config --global alias.cm "commit"
+git cm
+git commit
+git config --global alias.cm
+
+=>in githublesson4
+git st
+git add *
+git cm -m "A file3"
+git push -u origin main
+
+git commit -m ""
+git config --global alias.cmt "commit"
+git cmt
+git commit
+git config --global alias.cmt
+git config --global alias.cm
+
+=>in githublesson4
+git st
+git add *
+git cm -m "A file4"
+git st
+
+git st
+git add *
+git cmt -m "A file5"
+git st
+
+git push -u origin main
+
+#list of other shortcuts
+git config --global alias.cmt
+
+alias.br = branch
+alias.cm = commit
+alias.co = checkout
+alias.re = restore
+alias.sw = switch
+alias.dif = diff
+alias.pus = push
+alias.pu = push
+alias.pl = pull
+
+
+=>Remove Alias
+
+Method 1
+git config --global --edit
+
+Method 2
+vim ~/.gitconfig
+
+Method 3
+git config --global --unset alias.st
+----------------------------------------------------

@@ -534,3 +534,78 @@ C3 Improve feature
 C2 Fix bug
 C1 Update docs
 C0 Initial commit
+
+
+
+
+
+
+
+✅ Goal of git rebase main (while on new-feature):
+We are telling Git:
+
+"Take all the new commits from main, then reapply my new-feature work on top of that."
+
+So now, new-feature includes all the latest work from main plus your own commits — as if you started from the very latest version.
+
+📈 Timeline before rebase:
+sql
+Copy
+Edit
+main:         A---B---C
+                 \
+new-feature:      D---E
+After git rebase main (on new-feature):
+sql
+Copy
+Edit
+main:         A---B---C
+                         \
+new-feature (rebased):    D'--E'
+(D’ and E’ are your same commits, but rewritten on top of main’s latest commit)
+
+
+
+
+
+✅ First: What does “Rebase” really do?
+bash
+Copy
+Edit
+git rebase <target-branch>
+means:
+
+"Take the commits from my current branch that are not in <target-branch>, and replay them on top of <target-branch>."
+A---B---C   ← main
+     \
+      D---E   ← new-feature
+Now:
+
+main has commits A, B, C
+
+new-feature has commits A, B, D, E
+
+If you now run:
+
+bash
+Copy
+Edit
+git checkout main
+git rebase new-feature
+Git will:
+
+Look at main (A-B-C)
+
+Look at new-feature (A-B-D-E)
+
+Realize C is not in new-feature
+
+So it will replay C on top of E
+Result:
+
+A---B---D---E---C'   ← main (C was replayed, now called C')
+✅ Now main’s unique commits come after new-feature.
+
+But if main already had D and E (e.g., from a merge), then Git says:
+
+“Nothing to rebase — main already includes new-feature's commits.”
