@@ -72,3 +72,13 @@ vim ~/.gitconfig
 Method 3
 git config --global --unset alias.st
 ----------------------------------------------------
+
+=> Rename to Git Remote Keyword
+
+git remote rename // usage: git remote rename [--[no-]progress] <old> <new>
+git remote -v
+git remote rename origin server
+git remove -v
+git remote rename server github
+git remove -v
+git remote rename github origin

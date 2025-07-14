@@ -1,0 +1,309 @@
+= Github Organizations
+-aim to reduce collaborator traffic to many repos
+-to manage by central
+
+Github > dltaccount > profilepicture > Click "Your Organizations"
+click "New organization"
+click "Create a new organization"
+
+
+=Set up your organization
+Organization account name = dltorganization
+dltorganization = datalandtechnology@gmail.com
+This organization belongs to: = My personal account
+check "I hereby accept the Terms of Service. For more information about GitHub's privacy practices, see the GitHub Privacy Statement."
+click "Next"
+
+
+= Add Organization Member
+Github > dltaccount > profilepicture > Click "Your Organizations"
+Click "dltorganization"
+Click "People" > "Invite members"
+Search = "tinhtutaungdlt"
+click "invite"
+choose "member" Click "Sent invitation" 
+
+=>Accept invitation
+check email and accept
+
+
+=Create New Repositories in dltorganization
+github > dltaccount > profilepicture > Click "Your Organization"
+Click "dltorganization" > click  "New Repository"
+Repository name = githublesson9
+
+    **
+    github > kothaaccount > profilepicture > Click "Your Organizations"
+    Click "dltorganization"
+    click "Repositories" > githublesson9
+    **
+
+
+
+
+=> Test Lesson9
+github > dltaccount > "Your repository" > Click "new"
+
+cd lesson3
+mkdir githublesson8
+cd githublesson8
+
+git init
+git remote add origin git@github.com:thornorg/githublesson9.git
+git remote -v
+
+
+touch file0.txt
+
+vim file0.txt
+Edit: write down
+1. this is the first comment
+2. this is the second comment
+
+cat file0.txt
+
+git status
+git add *
+git commit -m "file 0 added"
+git status
+git push -u origin master
+
+=Update from kotha(member) to dltorganization>githublesson9
+Click file0.txt 
+Edit: Write down 
+1. this is the first comment
+2. this is the second comment
+3. this is the third comment
+4. this is the fourth comment
+Noted:: needed pull request cuz kotha is a member
+Noted:: needed merge frm dltaccount (owner)
+
+=Update from dltaccount(owner) to dltorganization>githublesson9
+Click file0.txt 
+Edit: Write down 
+01. this is the first comment
+02. this is the second comment
+03. this is the third comment
+04. this is the fourth comment
+Noted:: no needed pull request cuz dlt is a owner
+-----------------------------------------------------
+github > dltaccount > "Your repository" > Click "new"
+
+cd lesson3
+mkdir githublesson8
+cd githublesson8
+
+git init
+git remote add origin git@github.com:thoonshweyi/githublesson8.git
+git remote -v
+
+touch file0.txt
+
+vim file0.txt
+Edit: write down
+1. this is the first line
+2. this is the second line
+
+cat file0.txt
+
+git status
+git add *
+git commit -m "file 0 added"
+git status
+git push -u origin main
+
+=Transferring a Repository to the Organization
+github > dltaccount > "Your repository" > githublesson8 > Settings
+Click "Transfer ownership" > "Transfer"
+
+New owner = Select one of my organizations = dltorganization
+Click "I understand, Transfer this Repository"
+
+    **
+    Github > dltaccount > profilepicture > Click "Your Organizations"
+    Click "dltorganization"
+    click "Repositories" > githublesson8 > Code
+    git@github.com:thornorg/githublesson8.git
+    **
+
+=>Forking Back to Your Regular account
+dltaccount > Your organization > dltorganization > Repositories > githublesson8 > Click "Fork"
+
+=>Updating Remote URL
+git remote -v
+git remote add upstream git@github.com:thornorg/githublesson8.git
+git remote -v
+
+git fetch origin    // regular
+git fetch upstream // organization
+
+=Create Branch in org by dlt from github
+Click "New Branch"
+New branch name = new-action
+
+=Create Branch in dlt by dlt from github
+Click "New Branch"
+New branch name = new-action
+
+git status
+git branch
+git branch -a
+
+git fetch --all
+
+git branch
+git branch -a
+
+*result
+* main
+  remotes/origin/main
+  remotes/origin/new-action
+  remotes/upstream/main
+  remotes/upstream/new-action
+
+
+=Error can't checkout (fatal: 'new-action' matched multiple (2) remote tracking branches)
+git checkout new-action
+=Solution
+git checkout -b new-action origin/new-action
+
+git branch
+git pull // Already up to date
+
+=Create Branch in org by dlt from github
+Click "New Branch"
+New branch name = operation
+
+git branch -a
+git fetch upstream      
+git branch        //  remotes/upstream/operation
+
+=Create Branch in dlt by dlt from github
+Click "New Branch"
+New branch name = operating
+
+git branch -a
+git fetch origin      
+git branch        //   remotes/origin/operating
+
+=Add New file from PC
+
+git checkout main
+touch file1.txt
+ls
+echo "Hello i am file1" > file1.txt
+cat file1.txt
+git status
+git add file1.txt
+git commit -m "A fiel1 from pc"
+git status
+
+git push -u origin main
+git push -u upstream main
+
+=>Edit File from branch
+git branch
+git checkout new-action
+git branch
+
+vim file0.txt
+Write down: 3. this is the three line
+            4. this is the four line 
+
+cat file0.txt
+git status
+git add file0.txt
+git commit -m "M file0"
+git status
+
+git push -u origin new-action
+git push -u upstream new-action
+
+git checkout main
+
+=>Create new file from org by dlt
+dltaccount > Your organization > dltorganization > Repositories > githublesson8 > Click "operation" branch > Click "Add file" > "Create new file"
+file2.txt
+Write down: 1.this is the first comment
+            2.this is the second comment
+
+git branch -a
+git fetch upstream
+#here we can check asap !!!! no need to re-create branch again cuz upstream/operation was unique name. anyway we can call by
+git checkout operation
+(or)
+git checkout -b operation upstream/operation
+git branch -a
+
+
+=>Create new file from org by kotha github
+kotha > Your organization > dltorganization > Repositories > githublesson8 > Click "operation" branch > Click "Add file" > "Create new file"
+file3.txt
+Write down: 1.this is the first react
+            2.this is the second react
+=forked 
+=pull request (organization master<-kotha patch-1)
+
+git checkout master
+git branch 
+git fetch upstream
+git checkout operation
+git pull
+ls
+
+
+                    *Error (fatal: a branch named 'main' already exists)
+                    git checkout -b master upstream/master
+                    git merge main // *Error
+
+git checkout main
+ls
+git rebase main
+git pull
+(or)
+git pull origin master --rebase
+
+=>Remote URL Remove & re-add
+Method1
+git remote -v
+git config remote.upstream.url git@github.com:thornorgmy/githublesson8.git
+git remote -v
+
+Method2
+git remote -v
+git remote set-url upstream git@github.com:mythornorg/githublesson8.git
+git remote -v
+
+=Remote URL Remove
+git remote remove upstream
+git remote -v
+
+git remote add myorg git@github.com:thornorg/githublesson8.git
+git remote -v
+
+git branch -a 
+git fetch myorg
+git branch -a
+git checkout -b shared myorg/shared
+git branch
+
+
+-------------------------------------------------------------------------------------------------------
+🔹 1. git checkout -b new-action
+This part tells Git to:
+
+Create a new local branch called new-action
+
+And check it out, i.e., switch to that branch
+
+🔹 2. origin/new-action
+This is the starting point for the new branch. It tells Git:
+
+Base the new local branch on the remote tracking branch origin/new-action (which is the new-action branch on the remote origin repository)
+
+ Use Case
+You would run this command if:
+
+A remote branch new-action exists (but not locally yet)
+
+You want to create and switch to a local copy of that branch

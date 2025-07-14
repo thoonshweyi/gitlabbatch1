@@ -1,0 +1,124 @@
+=>Labels
+
+datalandaccount > repository > issues
+click "Labels 9" 
+click "New label"
+
+Label Name  = api error
+Description = API Token Access Error
+color = red
+click 'create label'
+
+datalandaccount > repository > issues
+click "New Issue"
+Title = API Error Founded!!!!
+Description = i got new error in CREATE NEW USER!! it's that may be api fetch error.
+Assignees = Assign yourself // cause no collaborators
+Labels = api error / bugs
+click 'create issue'
+
+datalandaccount > repository > issues
+Open > API Error Founded!!!!
+Comment = still problem in Create New Job Title
+Comment = done by my self
+click 'Close issue'
+
+=>Inviting Collaborators
+dlt account > githublesson2 > Settings > Collaborators > Add people , thinhtutaung.dlt@gmail.com
+
+=>Join/Accept Invitation
+kotha account > Profile Logo > Your Organization > Join > Accept Invitation
+
+datalandaccount > repository > issues
+click "New Issue"
+Title = Do we change Server?
+Description = Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Assignees = kotha account - username or email
+Labels = question
+click 'create issue'
+
+=kotha account > 
+datalandaccount > repository > issues
+Open > Do we change Server?
+Comment = customer say they can!!!!
+React = Like // for datalandaccount
+// click "Comment And Close"
+
+=datalandaccount >
+datalandaccount > repository > issues
+React = Heart // for kotha account
+click 'Close issue'
+
+
+=>Milestones
+datalandaccount > repository > issues
+click "Milestones" 
+click "New milestone"
+Title = PHP Framework V9
+Due date = Auguest 1 2023
+Description = Whether you're new to programming or an experienced developer, it's easy to learn and use Python.
+click 'Create milestone'
+
+
+datalandaccount > repository > issues
+click "Milestones" 
+Open > PHP Framework V9 
+Past due by 16 days
+
+
+datalandaccount > repository > issues
+click "Milestones" 
+click "New milestone"
+Title = Fontawesome 5.15.4 Pro
+Due date = Auguest 1 2023
+Description = Whether you're new to programming or an experienced developer, it's easy to learn and use Python.
+click 'Create milestone'
+
+
+datalandaccount > repository > issues
+click "Milestones" 
+Open > Fontawesome 5.15.4 Pro
+Past due by 16 days
+Click "Edit"
+Title = Fontawesome 6 Pro
+Due date = Auguest 19 2023 / 08/19/2023
+Click "Save changes"
+Due by Auguest 19, 2023
+
+
+datalandaccount > repository > issues
+click "Milestones" 
+Open > PHP Framework V9
+Past due by 16 days
+Click "Edit"
+Title = PHP Laravel Framework V10
+Due date = Auguest 20 2023 / 08/20/2023
+Click "Save changes"
+Due by Auguest 20, 2023
+
+
+datalandaccount > repository > issues
+click "New Issue"
+Title = Framework Upgrade
+Description = Hay Mr.Tin 
+                i recommend t upgrade .... v9 to v10 ...Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Assignees = kotha account - username or email
+Labels = help wanted
+Milestone = PHP Laravel Framework V10
+click 'create issue'
+
+
+=kotha account > 
+datalandaccount > repository > issues
+Open > Framework Upgrade
+Click "Close"
+**Tagged Milestone also mark as completed
+
+datalandaccount > repository > issues
+click "Milestones" 
+Open > PHP Laravel Framework V10
+100% completed 
+1 closed // issue
+Click "Close" milestone
+
+*Closed Milee stone can't attach in next time issue 

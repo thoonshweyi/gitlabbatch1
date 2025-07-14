@@ -247,3 +247,60 @@ git show v1.5
 git log --all --oneline
 git show v1.3
 git show v1.0
+
+-----------------------------------------------------
+
+=> Create & Manage Branch/Tag From Github
+
+cd lesson3
+cd githublesson7
+git status
+git checkout main
+git status
+git branch
+git checkout bugfix // error: pathspec 'bugfix' did not match any file(s) known to git
+
+github > datalandtechnology > Repository > githublesson7b > branch > Click "New Branch"
+bugfix
+stable
+Note: talking about source
+developer // source = new-feature
+
+git status
+git branch
+git checkout bugfix // error: pathspec 'bugfix' did not match any file(s) known to git
+
+git pull origin 
+git status
+git branch
+git checkout bugfix
+git status
+git branch
+ls
+git checkout stable
+git branch
+ls
+git checkout developer
+git branch
+ls
+cat file2.txt
+
+=>Tag
+git status
+git checkout main
+git log
+git tag --list
+
+github > datalandtechnology > Repository > githublesson7b > tags > Click "Create a new release" > "Choose a tag"
+v1.0 and write description(optional)
+click "Public releases"
+
+After first time tag created 
+Release > Draft a release
+
+git status
+git tag --list
+git pull origin
+git status
+git log
+git tag --list

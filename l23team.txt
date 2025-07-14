@@ -1,0 +1,16 @@
+=> Working with Team
+
+dltaccount > Your organizations > dltorganization > Teams > Click "New Team"
+Team name = Developers
+Description = Developers can read & write access to this repository
+Team visibility = Visible 
+Team notifications = Enabled
+
+Click "Create team"
+
+=>Add New member
+dltaccount > Your organization > dltorganization > Teams > Click "Developers"
+Click "Add a member"
+Add member to Developers = tinhtutaungdlt
+Click "Invite"
+

@@ -202,4 +202,49 @@ git checkout main
 ls
 git pull origin
 ls
+
+=>Rename Branch
+git branch
+git checkout new-feature
+git branch
+git branch -m my-feature
+git branch
+
+___________Not Ok for Remote Repository___________
+touch file3.txt;
+ls
+write down: Hello i am file3
+git status
+git add *
+git commit -m "A fil3 from terminal"
+git status
+git push -u origin my-feature
+
+
+=>Rename Branch for Local & Remote
+git branch
+git checkout bugfix
+git branch
+
+git branch -m bugfix codefix
+git branch
+
+=Delete the old branch on remote
+git push -u origin --delete bugfix
+or
+git push -u origin -d branchname
+or 
+git push -u origin -D branchname
+or
+git push -u origin :bugfix
+
+git branch
+touch file4.txt;
+ls
+write down: Hello i am file4
+git status
+git add *
+git commit -m "A fil4 from terminal"
+git status
+git push -u origin codefix
 --------------------------------------------------

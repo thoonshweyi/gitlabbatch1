@@ -1,0 +1,88 @@
+=>Change Remote URL
+
+cd lesson3
+mkdir githublesson7
+cd githublesson7
+
+git init
+git remote add origin git@github.com:thoonshweyi/githublesson7.git
+
+git remove -v
+
+vim file1.txt
+Edit: write down
+1.this is the first line
+2.this is the second line
+
+esc > :wq
+
+ls
+cat file1.txt
+
+git add file1.txt
+git commit -m "A file 1"
+git status
+
+git push -u origin main
+
+git checkout -b new-feature
+git status
+
+touch file2.txt 
+
+vim file2.txt
+Edit: write down
+1.this is the first comment
+2.this is the second comment
+
+esc > :wq
+
+ls
+cat file2.txt
+
+git add *
+git commit -m "A file 2"
+git status
+
+git push -u origin main
+git push -u origin new-feature
+
+=>Change Remote
+git remote -v
+git config -l --show-origin
+git config remote.origin.url
+
+git config remote.origin.url git@github.com:thoonshweyi/githublesson7b.git
+git remote -v
+git config remote.origin.url
+
+git status
+git checkout main
+git push -u origin main
+git push -u origin new-feature
+
+ls
+git checkout new-feature
+
+
+vim file2.txt
+Edit: write down
+3.this is the third comment
+4.this is the fourth comment
+
+esc > :wq
+
+ls
+cat file2.txt
+
+git add *
+git commit -m "M file 2"
+git status
+
+git push -u origin new-feature
+
+=Remote URL Remove
+git remote remove upstream
+git remote -v
+
+------------------------------------------------------
