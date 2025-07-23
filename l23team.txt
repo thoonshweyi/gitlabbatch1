@@ -14,3 +14,150 @@ Click "Add a member"
 Add member to Developers = tinhtutaungdlt
 Click "Invite"
 
+dltaccount > Your organization > dltorganization > Teams > Click "Developers"
+Click "tinhtutaungdlt" > "dltorganization / githublesson9" > Click "Manage access"
+Click "Membership privilege Edit"
+-----------------------------------------------------------------------
+=My note
+dltorganization > Teams > Click "Developers" > Members
+-Filter by Role (Everyone, Maintainer, Member)
+-Click a member 
+    -Change Membership (Member, Owner)
+    -Convrt to outside collaborator
+    -Remove from organization
+    -(Access to repositories - organization repos) + permissions
+    -       Public repository       Repo setting(visibility) 
+    -       Membership privilege    
+                Organization setting    
+                =Base Permissions - All members affected
+                    No Permission
+                    Read 
+                    Write
+                    Admin 
+-----------------------------------------------------------------------
+
+=> Team Permissions
+dltaccount > Your organization > dltorganization > Teams > Click "Developers" > "Repositories" > Click "Add repository"
+Add repository to Developers = thornorg/githublesson9
+Click "Add repository to team"
+-----------------------------------------------------------------------
+=My note 
+=>Edit existing file from org by dlt
+dltaccount > Your organization > dltorganization > Repositories > githublesson9 > Click "file0.txt" > Click "Edit this file"
+Write down: 03. this is the third react
+            04. this is the fourth react
+
+
+=>Edit existing file from org by kotha github
+kotha > Your organization > dltorganization > Repositories > githublesson9 > Click "file0.txt" > Click "Edit this file"
+=? forked 
+
+Write down: 05. this is the fifth share
+            06. this is the sixth share
+
+=pull request (organization master<-kotha patch-2)
+
+=>Merge update from kotha
+=Merge 
+
+
+=>Authorize Owner
+    dltaccount > Your organization > dltorganization > Teams > Click "Developers"
+    Click "tinhtutaungdlt"
+    Click "Membership" = "Owner"
+
+    =Create new file from org by dlt
+    dltaccount > Your organization > dltorganization > Team > Developers > Repositories > githublesson9 >  Click "Add file" > "Create new file"
+    file1.txt
+    Write down: Hello sir, i created new file1.txt by DLT
+
+    =>Create new file from org by kotha github
+    kotha > Your organization > dltorganization > Team > Developers > Repositories > githublesson9 > Click "Add file" > "Create new file"
+    file2.txt
+    Write down: Hello admin, i created new file 2 by kotha
+    *No fork 
+    *No pull request
+
+    *Analogy
+        Org                 >   Team
+        -Person A B C       >   Person A B
+                                        Permissions for githublesson9 - free and easy push and pull for authorized repo 
+
+=>Permission Effect for team repo
+    dltaccount > Your organization > dltorganization > Teams > Click "Developers" > "Repositories" > Click "Add repository"
+    Add repository to Developers = thornorg/githublesson8
+    Click "Add repository to team"
+
+    =>Edit existing file from org by dlt
+        dltaccount > Your organization > dltorganization > Repositories > githublesson8 > Click "file3.txt" > Click "Edit this file"
+        Write down: 03. this is the third react
+
+    =>Edit existing file from org by kotha github
+        kotha > Your organization > dltorganization > Repositories > githublesson8 > Click "file3.txt" > Click "Edit this file"
+        Write down: 4.this is the fourth react
+
+=>Remove from team
+    dltaccount > Your organization > dltorganization > Teams > Click "Developers" > Select tinhtutaungdlt > Click "Remove from team"
+    -only remove from team not from organization
+
+=>
+dltaccount > Your organizations > dltorganization > Teams > Click "New Team"
+Team name = Contributors
+Description = Readonly team for internship developers
+Team visibility = Visible 
+Team notifications = Enabled
+
+
+dltaccount > Your organization > dltorganization > Teams > Click "Developers"
+Click "tinhtutaungdlt"
+Click "Membership" = "Member"
+
+=Add New member
+Add member to Contributors = tinhtutaungdlt
+=Add repository to Developers = thornorg/githublesson9
+
+dltaccount > Your organization > dltorganization > Team > Contributors > Repositories > githublesson9 > 
+Role = Write
+
+    =>Edit existing file from org by dlt
+        dltaccount > Your organization > dltorganization > Team > Contributors > Repositories > githublesson9 > Click "file2.txt" > Click "Edit this file"
+        Write down: Hello sir, i edited new file 2 by dlt
+
+    =>Edit existing file from org by kotha github
+            kotha > Your organization > dltorganization > Team > Contributors > Repositories > githublesson9 > Click "file2.txt" > Click "Edit this file"
+            Write down: Hello admin, i edited new file 2 by kotha
+
+dltaccount > Your organization > dltorganization > Team > Developers > Repositories > githublesson8 > 
+dltaccount > Your organization > dltorganization > Team > Developers > Repositories > githublesson9 > 
+Role = Write
+*Don't need general permission for all repos/ admin can assing special permission for specific repo.
+
+dltaccount > Your organization > dltorganization > Team > Contributors > Repositories > githublesson9 > 
+Role = Read
+
+    kotha > Your organization > dltorganization > Team > Contributors > Repositories > githublesson9 > Click "file2.txt" > Click "Edit this file"
+    Can't
+    =Only see direct access level, can't change. Read/Write/
+    =Can't Add New Repository
+
+    Can
+    =Add New Team
+-----------------------------------------------------------------------
+What is a Team's Repository Direct Access?
+When you create a Team in a GitHub Organization, you can decide which repositories that team can access.
+
+Default Access: You can set a default permission level for all repositories in the organization (like Read-only).
+
+Direct Access: You can give specific repositories to that team with special permissions (like Write or Admin).
+These repositories are called “repositories with direct access” because they were manually assigned to the team.
+-----------------------------------------------------------------------
+
+dltaccount > Your organization > dltorganization > Teams > Click "Contributors"
+Click "tinhtutaungdlt" > "dltorganization / githublesson9" > Click "Manage access"
+Click "Membership privilege Edit"
+
+Team creation rules > 
+Allow members to create teams = Disabled
+
+Can't 
+=Add New Team
