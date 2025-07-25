@@ -1,0 +1,180 @@
+=> .git 
+
+cd lesson3
+mkdir githublesson10
+
+git init
+git remote add origin git@github.com:thoonshweyi/githublesson10.git
+git remote -v
+ls -a
+cd .git
+ls
+cat config
+
+git config --local user.name "Ms.Thorn"
+git config --local user.name
+git config --local user.email "ms.thorn@gmail.com"
+git config --local user.email
+
+ls -a
+cd .git 
+cat config
+
+
+touch file0.txt
+
+vim file0.txt
+Edit: write down
+1. this is the first line
+2. this is the second line
+
+cat file0.txt
+
+git add file0.txt
+git commit -m "file 0 added"
+git status
+git push -u origin main
+
+
+git branch bugfix
+git branch dev
+git branch 
+
+ls -a
+cd .git 
+vim config
+config --edit (window)
+=config
+[color "branch"]
+        local = violet
+        current = yellow bold
+
+cd ..
+git branch // error: invalid color value: violet
+
+Note:: to seee color in this link = https://git-scm.com/docs/git-config
+        color = normal, black, red, green, yellow, blue, magenta, cyan, white
+        The accepted attributes are bold, dim, ul, blink, reverse, italic, and strike (for crossed-out or "strikethrough" letters).
+
+[color "branch"]
+        local = cyan
+        current = yellow bold
+
+
+=>HEAD file 
+cd .git 
+ls
+cat HEAD // ref: refs/heads/master
+
+git branch
+git checkout bugfix     git switch bugfix
+git branch 
+
+cd .git 
+ls
+cat HEAD // ref: refs/heads/bugfix
+cd ..
+
+git switch main
+-----------------------------------------------------------
+=> Refs folder 
+-store all commit 
+
+git log 
+cd .git
+ls 
+cd refs         // heads/  remotes/  tags/
+ls
+cd heads        // bugfix  dev  master
+ls 
+cat main 
+cat bugfix
+cd dev
+
+cd ..
+cd ..
+
+git switch -c "new-feature"
+git branch
+ls
+
+touch file1.txt
+ls
+echo "Hello i am file1" > file1.txt
+cat file1.txt
+
+git add file1.txt
+git commit -m "file 1 added"
+git status
+git push -u origin new-feature
+
+git log 
+git log --oneline
+
+cd .git
+ls 
+cd refs         
+ls
+cd heads        
+ls 
+cat main
+cat bugfix
+cat dev
+cat new-feature
+
+cd ..
+cd ..
+-----------------------------------------------------------
+=Original config
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+[remote "origin"]
+        url = git@github.com:thoonshweyi/githublesson10.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[user]
+        name = Ms.Thorn
+        email = thorn@gmail.com
+
+=>Purmose of local name
+    One account logged in for 2 computers 
+
+    A PC             B PC 
+    name = Mr.A     name = Mr.B 
+    =User can know the changes come from which computer. 
+    =Same account using   different user name.
+
+
+Why is the name "local user name" showing on GitHub, even though that email is not linked to any GitHub account?
+
+
+     Key Point:
+    GitHub shows the user.name from your commit exactly as you wrote it — even if the email is not linked to a GitHub account.
+
+    If the email is NOT associated with a GitHub account, GitHub still:
+
+    Displays the commit
+
+    Shows the user.name like "Ms.Thorn"
+
+    BUT it doesn’t show your GitHub avatar or link to your profile.
+
+🎯 What Happens Based on the Email?
+    Situation	What GitHub does
+    Email is verified on GitHub	- GitHub links commit to your account
+    - Shows your avatar
+    Email is NOT verified on GitHub	- GitHub shows just your name ("Ms.Thorn")
+    - ❌ No avatar or link
+
+    So in your case:
+
+    The email ms.thorn@gmail.com is not in your GitHub account → GitHub doesn't know who this is.
+
+    But GitHub still shows your name (Ms.Thorn) from the commit — just no profile picture or profile link.
+
+    That’s why you still see "Ms.Thorn" on GitHub.
+

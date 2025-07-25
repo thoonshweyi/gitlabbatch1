@@ -1,0 +1,28 @@
+=> Pages (Deploy your project on Github for Free. HTML/CSS/JS React project. Static Website)
+
+cd lesson3
+mkdir githublesson11
+
+git init
+git remote add origin thoonshweyi/githublesson11
+git remote -v
+
+git status 
+git add .
+git commit -m "project added"
+git status 
+git push -u origin main
+
+Setting > click "Pages"
+Branch = main / (root)
+Clik "Save"
+
+Go to "Code" > click small yellow dot and click "Details"
+wait to green mark
+click "deploy" > Complete Job > https://thoonshweyi.github.io/githublesson11/
+    Orange element indicate 
+    Createing virttual server
+    Installed SSL Certificate
+Click Detail
+    build, report-build-status, deploy steps must green and completed
+

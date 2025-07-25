@@ -5,7 +5,7 @@
 =>Create Branch
 =Syntax
 git branch branchname
-
+git switch -c branchname
 
 mkdir lesson5
 git init
@@ -28,6 +28,8 @@ git branch
 
 =>Switch
 git checkout bugfix
+git switch bugfix
+
 git branch
 git status
 
