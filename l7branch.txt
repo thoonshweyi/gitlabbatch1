@@ -18,12 +18,20 @@ git  add file1.txt
 git commit -m "added fle1"
 git status
 
-git branch
+git branch (To see local branches)
+git branch -a (To see all local branches and remote branches)
+git branch -r (To see remote branches)
 
 git branch bugfix
 git branch
 
 git branch dev
+git branch
+
+Note: -b meaning create new branch 
+git checkout -b new-feature
+(or)
+git switch -c new-action
 git branch
 
 =>Switch

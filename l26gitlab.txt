@@ -1,0 +1,116 @@
+=>Gitlab
+
+cd gitlablesson
+mkdir lesson1 (create index.html)
+
+git init
+
+=>Default Branch
+git config --global init.defaultbranch main
+git status
+
+git branch -M main
+git status
+
+git status
+git remote add origin https://gitlab.com/thoonthoon/gitlablesson1.git
+git remote -v
+git add index.html
+git status
+git commit -m "my first project"
+git status
+git push -uf origin main            //Username for 'https://gitlab.com': thoonlay779@gmail.com
+                                    //Password for 'https://thoonlay779@gmail.com@gitlab.com':
+//*error
+ GitLab: You are not allowed to force push code to a protected branch on this project.
+
+gitlablesson1 > Branch > View branch rules > Protected branches > Click "Unprotect" > click "Unprotect branch"
+
+git status
+git push -uf origin main 
+
+=> Edit html file
+git status 
+git add *
+git status
+git commit -m "modified color"
+git push
+
+=> Create Branch
+git branch dev
+git branch
+git checkout dev
+git status
+
+touch style.css
+ls
+echo "p{color:red;}" > style.css
+cat style.css
+git status 
+git add style.css
+git commit -m "A style.css"
+git push -u origin dev
+
+git switch -c new-feature
+git branch
+
+
+touch app.js
+ls
+echo "cosole.log('hay')" > app.js
+cat app.js
+git status 
+git add app.js
+git commit -m "A app.js"
+git push -u origin new-feature
+
+
+=>Merge Git Branch to main
+
+git switch main
+git branch 
+git merge dev
+ls 
+git merge new-feature
+ls
+git status
+git push
+
+git branch
+git branch bugfix
+git branch opt
+git branch
+git branch -r
+git push // Everything up-to-date
+git branch -r
+git push -u origin bugfix
+git push --set-upstream origin opt
+git branch -r
+
+=>Delete Branch
+git branch -D dev  (to delete a local branch)
+git branch
+git branch -r
+
+git push origin --delete dev (to delete a remote branch)
+git branch -r
+
+=> Delete Project
+Proect left side bar releate to the current project
+
+Settings > General > Advance > Delete this project > Delete project
+-------------------------------------------------------------------
+
+=> SSH Connection
+
+Profile Icon > Edit profile > SSH Keys > 
+
+=>Linux
+Terminal: ~
+cd .ssh
+cat id_rsa.pub
+
+=>Windows
+cd /c/Users/ThoonShweYiKyaw/ssh
+ls
+cat id_rsa.pub
